@@ -53,7 +53,7 @@ function initialize() {
       '<b>No. of Serving Volunteers:</b> 100<br>' +
       '<b>Topics taught:</b> See full list here<br> '+
       '<b>Email Enquiries:</b> Use SendGrid<br> '+
-      '<b>Volunteer to teach:</b>Use Twilio Here</p>'+
+      '<b>Schedule a visit:</b>Use Twilio Here</p>'+
       '</div>'+
       '</div>';
 
@@ -80,7 +80,7 @@ var contentString2 = '<div id="content">'+
       '<b>No. of Serving Volunteers:</b> 40<br>' +
       '<b>Topics taught:</b> See full list here<br> '+
       '<b>Email Enquiries:</b> Use SendGrid<br> '+
-      '<b>Volunteer to teach:</b>Use Twilio Here</p>'+
+      '<b>Schedule a visit:</b>Use Twilio Here</p>'+
       '</div>'+
       '</div>';
 

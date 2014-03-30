@@ -113,8 +113,8 @@
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Teach Underprivileged Children</h2>
-                    <p>If you are available, consider signing up to teach a course provided by teachers all over the world!  One of the major issues that volunteers face is the lack of curriculum for children.  A schedule has been extremely helpful to volunteers who have not known what to teach.  Sign up today!</p>
+                    <h2>Teacher Training</h2>
+                    <p>Coming Soon. <br>This section will connect interested volunteers with educational resources in order to become better teachers</p>
                     <!--<a href="board.php" class="btn btn-success btn-lg"><i class="fa fa-book fa-fw"></i> <span class="network-name">Collaborate Now</span></a>-->
                 </div>
         </div>
