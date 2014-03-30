@@ -1,23 +1,17 @@
 <?php
-$username = $_POST['username'];
-$password = $_POST['password'];
+require_once 'connect.php';
+if (isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
  
-$conn = mysql_connect('localhost', 'root', '');
-mysql_select_db('user', $conn);
- 
-$username = mysql_real_escape_string($username);
-$query = "SELECT *
-        FROM login
-        WHERE username = '$username';";
- 
-$result = mysql_query($query);
- 
-if(mysql_num_rows($result) == 0) // User not found. So, redirect to login_form again.
-{
-    header('Location: login.php');
+$sql = "SELECT * FROM `login` WHERE username='$username' and password='$password'";
+$result = mysql_query($sql) or die(mysql_error());
+echo $username;
+$count = mysql_num_rows($result);
+if ($count == 1){
+    echo "You are logged in";
+}else {
+    echo "Login Failed";
 }
-else
-{
-	header('Location: index.php');
 }
 ?>

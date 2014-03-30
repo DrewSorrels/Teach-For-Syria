@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Volunteer Homepage</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +19,9 @@
 
     <!-- Custom Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/yourCourses.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/yourCourses.js"></script>
 
 </head>
 
@@ -30,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="#page-top">
                     <i class="fa fa-pencil" ></i>  <span class="light">Teach for</span> Syria
                 </a>
             </div>
@@ -43,13 +46,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index.php">Home</a>
+                        <a href="#profile" data-toggle="modal" data-target="#profile">Profile</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index.php">Volunteer Signup</a>
+                        <a href="#download">Collaborate</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Login</a>
+                        <a href="#contact">Locate NGO</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Teacher Training</a>
                     </li>
                 </ul>
             </div>
@@ -58,38 +64,22 @@
         <!-- /.container -->
     </nav>
 
-    <section class="intro intro2">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading" style="font-size:70px;">Please Login Teach For Syria</h1>
-                        <p class="intro-text" style="font-size:20px;">Login here to find out refugee schools/camps around you to volunteer or to collaborate and make a sustainable educational model for refugee children</p><br>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <form role="form" id="form1" name="form1" method="post" action="welcome.php">
-                     <div class="form-group">
-    <input type="text" class="form-control" id="username" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-default" value="Submit">Login</button>
-</form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <section id="about" class="container content-section text-center">
+    <div class="row">
+    <div id='header'>
+    <div class="addCourse btn btn-danger btn-lg"><i class="fa fa-pencil" ></i>Add a suggested education plan</div>
+    </div><br><br><br>
+    <div id='content'>
+    <div id='courses'>
+    </div>
+    </div>
     </section>
 
-    
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
