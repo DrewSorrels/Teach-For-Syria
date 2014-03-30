@@ -32,7 +32,21 @@ $(document).ready(function(){
 		$.ajax({
 			type: "POST",
 			url: "",
-			data:
+			data: 'title='+title,
+			success: function(msg){
+		if(parseInt(msg)!=5)
+		{
+    		$('#success').html('Successfully added ' + name + ' into database.');
+			$('#loading').css('visibility','hidden');
+    		alert('success');//testing purposes
+   		}
+		else
+		{
+    		$('#err').html('Failed to add ' + name + ' into database.');
+    		$('#loading').css('visibility','hidden');
+    		alert('fail');//testing purposes
+   			}
+			}
 
 
 		})
