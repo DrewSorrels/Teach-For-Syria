@@ -14,7 +14,7 @@ $(document).ready(function(){
 	});
 */
 	$(".addCourse").click(function(){
-		$(this).parent().append('<div class="col-md-3"><h4 class="title"></h4><p class="desc"></p><input type="text" name="title" value="Enter A Title" class="onefield"></input><textarea name="desc" class="textfield">Click to add a description</textarea><a href="#" class="save">Save</a> <a href="#" class="cancel">Cancel</a></div>');
+		$("#courses").append('<div class="col-md-3"><h4 class="title">Title</h4><p class="desc">Description</p><input type="text" name="title" value="Enter A Title" class="onefield"></input><br><textarea name="desc" class="textfield">Click to add a description</textarea></div>');
 	});
 
 	$(".title, .desc").hover(function(){
@@ -63,11 +63,16 @@ $(document).ready(function(){
 
   		$(this).siblings(".onefield").css("display", "block");
   		$(this).siblings(".textfield").css("display", "block");
-  		$(this).siblings("a").css("display", "inline-block");
+  		//$(this).siblings("a").css("display", "inline-block");
 	});	// end title/desc click event
+
+
+
 
 	$(".save").on("click", function(e){
   		e.preventDefault();
+  		
+  		$('#courses > div').each(function(){
   		var titleval = $(this).prevAll(".onefield:first").val();
   		var descval  = $(this).prevAll(".textfield:first").val();
 
@@ -78,16 +83,16 @@ $(document).ready(function(){
   		desccontainer.html(descval).css("display", "block");
 
 
-  		$(this).prevAll(".onefield:first").css("display", "none");
-  		$(this).prevAll(".textfield:first").css("display", "none");
+  		$(this).find(".onefield").css("display", "none");
+  		$(this).find(".textfield").css("display", "none");
 
-  		$(this).next(".cancel").css("display", "none");
-  		$(this).css("display", "none");
+  		});
 	}); // end save btn click event
 
 	$(".cancel").on("click", function(e){
 		e.preventDefault();
 
+		$('#courses > div').each(function(){
   		var titlecontainer = $(this).siblings(".title");
   		var desccontainer  = $(this).siblings(".desc");
 
@@ -98,6 +103,7 @@ $(document).ready(function(){
   		$(this).prevAll(".textfield:first").val(desccontainer.html()).css("display", "none");		
   		$(this).prev(".save").css("display", "none");
   		$(this).css("display", "none");
+  	});
 }); // end cancel btn click event
 
 

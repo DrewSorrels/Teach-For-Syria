@@ -10,8 +10,15 @@ html, body {
 #header {
 	background-color: #2479A7;
 	height: 37px;
+	padding: 3px 5px;
 }
 
+.addCourse {
+	height: 30px;
+	width: 30px;
+	background-color: #F00;
+	border-radius: 5px;
+}
 
 /*
 	CONTENT STYLES
@@ -39,19 +46,12 @@ html, body {
 
 }
 
-.addCourse {
-	height: 30px;
-	width: 30px;
-	background-color: #F00;
-}
-
 #courses > div {
 	padding: 10px;
 	margin: 8px 0px 0px 8px;
 	border-radius: 5px;
-	height: 100px;
 	display: inline-block;
-	width: 25%;
+	height: 120px;
 }
 
 #courses > div, #sidebar {
