@@ -130,7 +130,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <a href="#profile" data-toggle="modal" data-target="#profile">Profile</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#download">Collaborate</a>
+                        <a href="board.php">Collaborate</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Locate NGO</a>
@@ -156,6 +156,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                            <center><h3 class="modal-title"><b>Profile</b></h3></center>
                       </div>
                 <div class="modal-body">
+                  <p style="text-align:center;"><img src="img/book.png" class="img-polaroid"></p>
                     <p><b>Name:</b> Suhem Parack</p>
                     <p><b>Country:</b> Jordan</p>
                     <p><b>Teaching Interest:</b> Math</p>

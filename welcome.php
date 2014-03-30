@@ -88,6 +88,17 @@
         </div>
     </section>
 
+       <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Collaborate</h2>
+                    <p>If you are a teacher or an educator, please collaborate and submit your proposed sustainable eductation model here!</p>
+                    <a href="board.php" class="btn btn-success btn-lg"><i class="fa fa-book fa-fw"></i> <span class="network-name">Collaborate Now</span></a>
+                </div>
+        </div>
+    </section>
+
      <section id="contact" class="container content-section text-center">
         <div class="row row1">
             <div class="col-lg-8 col-lg-offset-2">
@@ -106,6 +117,7 @@
                            <center><h3 class="modal-title"><b>Profile</b></h3></center>
                       </div>
                 <div class="modal-body">
+                  <p style="text-align:center;"><img src="img/book.png" class="img-polaroid"></p>
                     <p><b>Name:</b> Suhem Parack</p>
                     <p><b>Country:</b> Jordan</p>
                     <p><b>Teaching Interest:</b> Math</p>
