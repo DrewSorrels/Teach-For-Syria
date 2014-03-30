@@ -76,6 +76,26 @@
     </div>
     </section>
 
+      <div class="modal fade" id="profile" style="color:Black;">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           <center><h3 class="modal-title"><b>Profile</b></h3></center>
+                      </div>
+                <div class="modal-body">
+                    <p><b>Name:</b> Suhem Parack</p>
+                    <p><b>Country:</b> Jordan</p>
+                    <p><b>Teaching Interest:</b> Math</p>
+                    <p><b>Places Taught:</b> Zaatari Camp, Amman</p>
+                </div>
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                </div><!-- /.modal-content -->
+             </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>

@@ -28,7 +28,7 @@
     <!-- Custom Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
 
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 // This example displays a marker at the center of Australia.
 // When the user clicks the marker, an info window opens.
@@ -36,11 +36,13 @@
 function initialize() {
   var myLatlng = new google.maps.LatLng(32.298783, 36.321605);
   var mapOptions = {
-    zoom: 10,
+    zoom: 9,
     center: myLatlng
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
   var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
@@ -62,11 +64,40 @@ function initialize() {
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
+      icon: iconBase + 'schools_maps.png',
       title: 'Al-Zaatari Refugee Camp'
   });
-  google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, 'mouseover', function() {
     infowindow.open(map,marker);
   });
+
+var contentString2 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">Jusoor-Syria</h3>'+
+      '<div id="bodyContent">'+
+      '<p><b>Child Taught:</b> 12000<br>' +
+      '<b>No. of Serving Volunteers:</b> 40<br>' +
+      '<b>Topics taught:</b> See full list here<br> '+
+      '<b>Email Enquiries:</b> Use SendGrid<br> '+
+      '<b>Volunteer to teach:</b>Use Twilio Here</p>'+
+      '</div>'+
+      '</div>';
+
+   var point1 = new google.maps.LatLng(32.54, 36.5);
+    var marker1 = new google.maps.Marker({
+       position: point1,
+       map: map,
+       title:'Marker 1',
+       icon: iconBase + 'schools_maps.png'
+    });
+    var html_text1    = 'This is text for the first marker';
+    var infowindow1 = new google.maps.InfoWindow({
+       content: contentString2
+    });
+    google.maps.event.addListener(marker1, 'mouseover', function() {
+        infowindow1.open(map, marker1);
+    });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
