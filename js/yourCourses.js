@@ -33,22 +33,26 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "../php/process.php",
-			data: $(this).parent().find('input, textarea').serialize(),
+			url: "../php/process.php", 
+			data: { /*$(this).parent().find('input, textarea').serialize()*/
+				title: $(this).parent().data('title'),
+				desc: $(this).parent().data('desc')
+			},
+		
 		 
-		success: function(msg){
-		if(parseInt(msg)!=5)
-		{
-    		
-			$('#loading').css('visibility','hidden');
-    		alert('success');//testing purposes
-   		}
-		else
-		{
-    		$('#loading').css('visibility','hidden');
-    		alert('fail');//testing purposes
-		}
-		}
+			success: function(msg){
+				if(parseInt(msg)!=5)
+				{
+		    		console.log(msg);
+					$('#loading').css('visibility','hidden');
+		    		alert('success');//testing purposes
+		   		}
+				else
+				{
+		    		$('#loading').css('visibility','hidden');
+		    		alert('fail');//testing purposes
+				}
+			}
 
 
 		});
