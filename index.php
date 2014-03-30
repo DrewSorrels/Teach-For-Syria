@@ -1,3 +1,81 @@
+<?php
+    if($_POST['formSubmit'] == "Submit") 
+    {
+        $errorMessage = "";
+        
+        if(empty($_POST['formName'])) 
+        {
+            $errorMessage .= "<li>You forgot to enter a name</li>";
+        }
+        if(empty($_POST['formEmail'])) 
+        {
+            $errorMessage .= "<li>You forgot to enter a email/li>";
+        }
+        if(empty($_POST['formPass'])) 
+        {
+            $errorMessage .= "<li>You forgot to select your password</li>";
+        }
+         if(empty($_POST['formNumber'])) 
+        {
+            $errorMessage .= "<li>You forgot to select your number</li>";
+        }
+         if(empty($_POST['formCountry'])) 
+        {
+            $errorMessage .= "<li>You forgot to select your country</li>";
+        }
+         if(empty($_POST['formTeach'])) 
+        {
+            $errorMessage .= "<li>You forgot to select your teach</li>";
+        }
+
+        $varName = $_POST['formName'];
+        $varEmail = $_POST['formEmail'];
+        $varPass = $_POST['formPass'];
+        $varPhone = $_POST['formNumber'];
+        $varCountry = $_POST['formCountry'];
+        $varTeach = $_POST['formTeach'];
+
+        if(empty($errorMessage)) 
+        {
+            $db = mysql_connect("localhost","root","");
+            if(!$db) die("Error connecting to MySQL database.");
+            mysql_select_db("user" ,$db);
+
+            $sql = "INSERT INTO user (name, email, password, phone, country, teach) VALUES (".
+                            PrepSQL($varName) . ", " .
+                            PrepSQL($varEmail) . ", " .
+                            PrepSQL($varPass) . ", " .
+                            PrepSQL($varPhone) . ", " .
+                            PrepSQL($varCountry) . ", " .
+                            PrepSQL($varTeach) . ")";
+            mysql_query($sql);
+            
+            header("Location: success.php");
+            exit();
+        }
+    }
+            
+    // function: PrepSQL()
+    // use stripslashes and mysql_real_escape_string PHP functions
+    // to sanitize a string for use in an SQL query
+    //
+    // also puts single quotes around the string
+    //
+    function PrepSQL($value)
+    {
+        // Stripslashes
+        if(get_magic_quotes_gpc()) 
+        {
+            $value = stripslashes($value);
+        }
+
+        // Quote
+        $value = "'" . mysql_real_escape_string($value) . "'";
+
+        return($value);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +194,7 @@
           <p>Locate NGOs working in your country and schedule time when you would like to teach, what you would like to teach</p>
         </div>
           <div class="col-lg-8 col-lg-offset-2">
-                    <button type="button" class="btn btn-lg btn-default"> <i class="fa fa-user fa-fw"></i>Volunteer Sign Up</button>
+                    <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#signUpModal"> <i class="fa fa-user fa-fw"></i>Volunteer Sign Up</button>
             </div>
         </div>
         </div>
@@ -140,11 +218,68 @@
         </div>
     </section>
 
+            <div class="modal fade" id="signUpModal" style="color:Black;">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           <center><h3 class="modal-title"><b>Volunteer Sign up</b></h3></center>
+                      </div>
+                <div class="modal-body">
+<?php
+            if(!empty($errorMessage)) 
+            {
+                echo("<p>There was an error with your form:</p>\n");
+                echo("<ul>" . $errorMessage . "</ul>\n");
+            }
+        ?>
+
+        <form role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+            <div class="form-group">
+                <label for='formName'>Full Name</label><br/>
+                <input type="text" name="formName" maxlength="50" value="" class="form-control" placeholder="Enter your name"/>
+            </div>
+            <div class="form-group">
+                <label for='formEmail'>Email Address</label><br/>
+                <input type="text" name="formEmail" maxlength="50" value="" type="email" class="form-control" placeholder="Enter email"/>
+            </div>
+            <div class="form-group">
+                <label for='formPass'>Password</label><br/>
+                <input name="formPass" maxlength="50" value="" type="password" class="form-control" placeholder="Enter password"/>
+            </div>
+            <div class="form-group">
+                <label for='formNumber'>Phone Number</label><br/>
+                <input type="text" name="formNumber" maxlength="50" value="" type="text" class="form-control" placeholder="Enter Phone Number"/>
+            </div>
+            <div class="form-group">
+                <label for='formCountry'>Select Your Country</label><br/>
+                <select name="formCountry" class="form-control selectpicker">
+                    <option value="">Select Stock</option>
+                    <option value="JOR"<? if($varStock=="JOR") echo(" selected=\"selected\"");?>>Jordan</option>
+                    <option value="TUR"<? if($varStock=="TUR") echo(" selected=\"selected\"");?>>Turkey</option>
+                    <option value="LEB"<? if($varStock=="LEB") echo(" selected=\"selected\"");?>>Lebanon</option>
+                </select>
+            </div>
+                <div class="form-group">
+                <label for='formTeach'>What can you teach?</label><br/>
+                <input type="text" name="formTeach" maxlength="100" value="" class="form-control" placeholder="Enter your educational background"/>
+            </div>
+            <input type="submit" name="formSubmit" value="Submit" class="btn btn-primary"/>
+        </form>
+                </div>
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                </div><!-- /.modal-content -->
+             </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
 
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
 
     <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
