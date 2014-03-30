@@ -50,6 +50,20 @@
                             PrepSQL($varTeach) . ")";
             mysql_query($sql);
             
+            //Twilio Integration
+            require("/php/twilio-php-latest/Services/Twilio.php");
+
+            $sid = "ACb9da0c813b920a9e20fb16d822445cc2"; // Your Account SID from www.twilio.com/user/account
+            $token = "2ae62231633cdb26d34c5b53e54ecc32"; // Your Auth Token from www.twilio.com/user/account
+
+            $client = new Services_Twilio($sid, $token);
+            $message = $client->account->messages->sendMessage(
+              '5719214696', // From a valid Twilio number
+              '$varPhone', // Text this number
+              "Welcome to Teach for Syria!  Thank you for registering!"
+            );
+
+
             header("Location: success.php");
             exit();
         }
