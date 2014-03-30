@@ -24,6 +24,8 @@ $(document).ready(function(){
 	});
 
 	$('#courses').on('click', 'div > button.save', function(){
+		var oldTitle = $(this).parent().data('title');
+		var oldDesc = $(this).parent().data('desc');
 		$(this).parent().data({
     		title: $(this).siblings('input').val(),
     		desc: $(this).siblings('textarea').val()
@@ -31,22 +33,22 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "",
-			data: 'title='+title,
-			success: function(msg){
+			url: "../php/process.php",
+			data: $(this).parent().find('input, textarea').serialize(),
+		 
+		success: function(msg){
 		if(parseInt(msg)!=5)
 		{
-    		$('#success').html('Successfully added ' + name + ' into database.');
+    		
 			$('#loading').css('visibility','hidden');
     		alert('success');//testing purposes
    		}
 		else
 		{
-    		$('#err').html('Failed to add ' + name + ' into database.');
     		$('#loading').css('visibility','hidden');
     		alert('fail');//testing purposes
-   			}
-			}
+		}
+		}
 
 
 		});
