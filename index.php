@@ -59,10 +59,21 @@
             $client = new Services_Twilio($sid, $token);
             $message = $client->account->messages->sendMessage(
               '5719214696', // From a valid Twilio number
-              '$varPhone', // Text this number
+              "".$varPhone."", // Text this number
               "Welcome to Teach for Syria!  Thank you for registering!"
             );
 
+            //SendGrid email confirmation
+            require("/php/sendgrid-php/sendgrid-php.php");
+            $options = array("turn_off_ssl_verification" => true);
+            $sendgrid = new SendGrid('azub999', 'P3Q0ZRXerVWMCUKvgqec', $options);
+            $email = new SendGrid\Email();
+            $email->addTo("".$varEmail."")->
+                    setFrom("admin@teachforsyria.com")->
+                    setSubject("Registration Confirmation")->
+                    setText("Thank you for registering for Teach for Syria!");
+
+            $sendgrid->send($email);
 
             header("login.php");
             exit();
