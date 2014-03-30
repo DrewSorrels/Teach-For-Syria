@@ -14,9 +14,29 @@ $(document).ready(function(){
 	});
 */
 	$(".addCourse").click(function(){
-		$("#courses").append('<div class="col-md-3"><h4 class="title">Title</h4><p class="desc">Description</p><input type="text" name="title" value="Enter A Title" class="onefield"></input><br><textarea name="desc" class="textfield">Click to add a description</textarea></div>');
+		$("#courses").append('<div class="col-md-3"><input type="text" value="Title"></input><textarea type="text">Description</textarea><button class="cancel">Cancel</button><button class="save">Save</button></div>');
 	});
 
+	$('#courses > div').each(function(){
+		var title = $(this).find('input').val();
+		var desc = $(this).find('textarea').val();
+		$(this).data({ title: title, desc: desc });
+	});
+
+	$('#courses').on('click', 'div > button.save', function(){
+		$(this).parent().data({
+    		title: $(this).siblings('input').val(),
+    		desc: $(this).siblings('textarea').val()
+  		});
+	});
+
+	$('#courses').on('click', 'div > button.cancel', function(){
+		var title = $(this).parent().data('title');
+  		var desc = $(this).parent().data('desc');
+  		$(this).siblings('input').val(title);
+  		$(this).siblings('textarea').val(desc);
+	});
+/*
 	$(".title, .desc").hover(function(){
 		var previtem = $(this).prev();
 		$(this).addClass("litehover");
@@ -105,6 +125,7 @@ $(document).ready(function(){
   		$(this).css("display", "none");
   	});
 }); // end cancel btn click event
+*/
 
 
 
