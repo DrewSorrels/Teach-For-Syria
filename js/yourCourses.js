@@ -13,16 +13,9 @@ $(document).ready(function(){
 		$(this).siblings().animate({height: "100px", width: '255px'});
 	});
 */
-	function addCourse.click(){
-		$('.row').append('<div class="col-md-3">
-							<h4 class="title"></h4>
-  							<p class="desc"></p>
-							<input type="text" name="title" value="Enter A Title" class="onefield"></input>
-							<textarea name="desc" class="textfield">Click to add a description</textarea>
-							
-							<a href="#" class="save">Save</a> <a href="#" class="cancel">Cancel</a>
-						</div>');
-	}
+	$(".addCourse").click(function(){
+		$(this).parent().append('<div class="col-md-3"><h4 class="title"></h4><p class="desc"></p><input type="text" name="title" value="Enter A Title" class="onefield"></input><textarea name="desc" class="textfield">Click to add a description</textarea><a href="#" class="save">Save</a> <a href="#" class="cancel">Cancel</a></div>');
+	});
 
 	$(".title, .desc").hover(function(){
 		var previtem = $(this).prev();
@@ -73,7 +66,7 @@ $(document).ready(function(){
   		$(this).siblings("a").css("display", "inline-block");
 	});	// end title/desc click event
 
-	$(".save").live("click", function(e){
+	$(".save").on("click", function(e){
   		e.preventDefault();
   		var titleval = $(this).prevAll(".onefield:first").val();
   		var descval  = $(this).prevAll(".textfield:first").val();
@@ -92,7 +85,7 @@ $(document).ready(function(){
   		$(this).css("display", "none");
 	}); // end save btn click event
 
-	$(".cancel").live("click", function(e){
+	$(".cancel").on("click", function(e){
 		e.preventDefault();
 
   		var titlecontainer = $(this).siblings(".title");

@@ -39,6 +39,12 @@ html, body {
 
 }
 
+.addCourse {
+	height: 30px;
+	width: 30px;
+	background-color: #F00;
+}
+
 #courses > div {
 	padding: 10px;
 	margin: 8px 0px 0px 8px;
@@ -51,3 +57,4 @@ html, body {
 #courses > div, #sidebar {
 	background-color: #b1b1b1;
 }
+
