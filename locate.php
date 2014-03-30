@@ -7,7 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Volunteer Homepage</title>
+    <title>Locate NGO</title>
+
+    <style>
+      html, body, #map-canvas {
+        height: 90%;
+        margin: 40px;
+        padding: 20px
+      }
+    </style>
 
     <!-- Bootstrap Core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +27,51 @@
 
     <!-- Custom Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
+
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+// This example displays a marker at the center of Australia.
+// When the user clicks the marker, an info window opens.
+
+function initialize() {
+  var myLatlng = new google.maps.LatLng(32.298783, 36.321605);
+  var mapOptions = {
+    zoom: 10,
+    center: myLatlng
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h3 id="firstHeading" class="firstHeading">Al-Zaatari Refugee Camp</h3>'+
+      '<div id="bodyContent">'+
+      '<p><b>Child Population:</b> 500000<br>' +
+      '<b>No. of Serving Volunteers:</b> 100<br>' +
+      '<b>Topics taught:</b> See full list here<br> '+
+      '<b>Email Enquiries:</b> Use SendGrid<br> '+
+      '<b>Volunteer to teach:</b>Use Twilio Here</p>'+
+      '</div>'+
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Al-Zaatari Refugee Camp'
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
 
 </head>
 
@@ -62,41 +115,7 @@
     </nav>
 
 
-    <section id="about" class="container content-section text-center">
-             <div class="row">
-                <h2>Welcome, Suhem</h2><br>
-        <div class="col-md-4">
-          <h3>Connect with an NGO</h3>
-          <i class="fa fa-users fa-5x"></i>
-          <p>You can find out places around you where you can volunteer to teach and schedule time with them!</p>
-        </div>
-        <div class="col-md-4">
-          <h3>Collaborate</h3>
-          <i class="fa fa-comments-o fa-5x"></i>
-          <p>If you are an educator, you can collaborate with others and make a sustainable education to be taught at a refugee camp! </p>
-       </div>
-        <div class="col-md-4">
-          <h3>Teacher Training</h3>
-          <i class="fa fa-pencil-square fa-5x"></i>
-          <p>If you are a new volunteer, please visit the Teacher Training tab to get tips on how to teach in such a crisis situation</p>
-        </div>
-         <div class="page-scroll">
-                            <a href="#download" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                </div>
-        </div>
-    </section>
-
-     <section id="contact" class="container content-section text-center">
-        <div class="row row1">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Locate an NGO or School serving refugees around you</h2>
-                <p>You can schedule some time to go and teach at these schools or donate school supplies</p>
-                    <a href="locate.php" class="btn btn-default btn-lg"><i class="fa fa-map-marker fa-fw"></i> <span class="network-name">Locate Now!</span></a>
-            </div>
-        </div>
-    </section>
+   <div id="map-canvas" style="color:Black;"></div>
 
      <div class="modal fade" id="profile" style="color:Black;">
               <div class="modal-dialog">
@@ -119,9 +138,13 @@
         </div><!-- /.modal -->
 
     <!-- Core JavaScript Files -->
+    <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
