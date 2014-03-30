@@ -67,9 +67,9 @@
                         <p class="intro-text" style="font-size:20px;">Login here to find out refugee schools/camps around you to volunteer or to collaborate and make a sustainable educational model for refugee children</p><br>
                     </div>
                     <div class="col-md-6 col-md-offset-3">
-                        <form role="form" id="form1" name="form1" method="post" action="auth.php">
+                        <form role="form" id="form1" name="form1" method="post" action="welcome.php">
                      <div class="form-group">
-    <input type="text" class="form-control" id="email" placeholder="Enter email">
+    <input type="text" class="form-control" id="username" placeholder="Enter email">
   </div>
   <div class="form-group">
     <input type="password" class="form-control" id="password" placeholder="Password">
