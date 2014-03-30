@@ -124,7 +124,10 @@
                         <a href="#about">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#download">Volunteer</a>
+                        <a href="#download">Volunteer Signup</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="login.php">Login</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
