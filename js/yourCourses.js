@@ -29,20 +29,14 @@ $(document).ready(function(){
     		desc: $(this).siblings('textarea').val()
   		});
 
+		$.ajax({
+			type: "POST",
+			url: "",
+			data:
 
-	<?
-		include('db_connect.php');
 
-		if($_POST['title'])
-		{
- 		$title = $_POST['title'];
- 		$title = mysql_escape_string($title);
- 		$query = "INSERT INTO tz_navbar (name) VALUES ('".$name."')";
-		$result = mysql_query("$query") or die ("5");
+		})
 
-		}
-
-	?>
 
 	});
 
