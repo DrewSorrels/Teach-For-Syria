@@ -53,7 +53,7 @@ function initialize() {
       '<b>No. of Serving Volunteers:</b> 100<br>' +
       '<b>Topics taught:</b> See full list here<br> '+
       '<b>Email Enquiries:</b> Use SendGrid<br> '+
-      '<b>Schedule a visit:</b>Use Twilio Here</p>'+
+      '<b>Schedule a visit:</b>703703703</p>'+
       '</div>'+
       '</div>';
 
@@ -114,7 +114,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
+                <a class="navbar-brand" href="http://teachforsyria.elasticbeanstalk.com">
                     <i class="fa fa-pencil" ></i>  <span class="light">Teach for</span> Syria
                 </a>
             </div>

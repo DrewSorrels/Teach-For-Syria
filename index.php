@@ -37,9 +37,9 @@
 
         if(empty($errorMessage)) 
         {
-            $db = mysql_connect("localhost","root","");
+            $db = mysql_connect("eventhack.ccfxs2sfazcf.us-west-2.rds.amazonaws.com:3306","eventhack","password");
             if(!$db) die("Error connecting to MySQL database.");
-            mysql_select_db("user" ,$db);
+            mysql_select_db("eventhack" ,$db);
 
             $sql = "INSERT INTO user (name, email, password, phone, country, teach) VALUES (".
                             PrepSQL($varName) . ", " .
@@ -64,7 +64,7 @@
             );
 
 
-            header("Location: success.php");
+            header("login.php");
             exit();
         }
     }
@@ -122,7 +122,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
+                <a class="navbar-brand" href="teachforsyria.elasticbeanstalk.com">
                     <i class="fa fa-pencil" ></i>  <span class="light">Teach for</span> Syria
                 </a>
             </div>
@@ -224,11 +224,11 @@
                 <p>Feel free to email us with any suggestions that you may have</p>
                 <p>sparack@gmu.edu</p>
                 <ul class="list-inline banner-social-buttons">
-                    <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    <li><a href="https://twitter.com/SuhemP" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                     </li>
-                    <li><a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    <li><a href="https://www.facebook.com/TeachForSyria" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                     </li>
-                    <li><a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    <li><a href="https://plus.google.com/" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
             </div>
@@ -271,7 +271,7 @@
             <div class="form-group">
                 <label for='formCountry'>Select Your Country</label><br/>
                 <select name="formCountry" class="form-control selectpicker">
-                    <option value="">Select Stock</option>
+                    <option value="">Select Country</option>
                     <option value="JOR"<? if($varStock=="JOR") echo(" selected=\"selected\"");?>>Jordan</option>
                     <option value="TUR"<? if($varStock=="TUR") echo(" selected=\"selected\"");?>>Turkey</option>
                     <option value="LEB"<? if($varStock=="LEB") echo(" selected=\"selected\"");?>>Lebanon</option>

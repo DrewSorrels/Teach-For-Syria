@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
+                <a class="navbar-brand" href="http://teachforsyria.elasticbeanstalk.com">
                     <i class="fa fa-pencil" ></i>  <span class="light">Teach for</span> Syria
                 </a>
             </div>
